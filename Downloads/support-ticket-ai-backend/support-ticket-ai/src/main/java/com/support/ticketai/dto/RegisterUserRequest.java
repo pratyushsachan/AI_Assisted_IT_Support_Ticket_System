@@ -17,6 +17,9 @@ public class RegisterUserRequest {
     @NotBlank
     private String fullName;
 
+    // Optional — "ADMIN" or "USER". Defaults to USER if not provided.
+    private String role;
+
     public String getEmail() {
         return email;
     }
@@ -39,5 +42,13 @@ public class RegisterUserRequest {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

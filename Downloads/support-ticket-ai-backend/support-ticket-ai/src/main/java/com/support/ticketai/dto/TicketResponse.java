@@ -20,6 +20,8 @@ public class TicketResponse {
     private String assignedAgentEmail;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private String adminResponse;
+    private boolean aiSolved;
 
     public TicketResponse() {
     }
@@ -40,6 +42,8 @@ public class TicketResponse {
         dto.setAssignedAgentEmail(ticket.getAssignedAgent() != null ? ticket.getAssignedAgent().getEmail() : null);
         dto.setCreatedAt(ticket.getCreatedAt());
         dto.setUpdatedAt(ticket.getUpdatedAt());
+        dto.setAdminResponse(ticket.getAdminResponse());
+        dto.setAiSolved(ticket.isAiSolved());
         return dto;
     }
 
@@ -139,5 +143,20 @@ public class TicketResponse {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+    public String getAdminResponse() {
+        return adminResponse;
+    }
+
+    public void setAdminResponse(String adminResponse) {
+        this.adminResponse = adminResponse;
+    }
+
+    public boolean isAiSolved() {
+        return aiSolved;
+    }
+
+    public void setAiSolved(boolean aiSolved) {
+        this.aiSolved = aiSolved;
     }
 }

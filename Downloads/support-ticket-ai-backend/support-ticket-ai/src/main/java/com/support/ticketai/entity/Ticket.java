@@ -43,6 +43,12 @@ public class Ticket {
     @JoinColumn(name = "assigned_agent_id")
     private User assignedAgent;
 
+    @Column(length = 1000)
+    private String adminResponse; // admin's manual response if AI couldn't solve it
+
+    @Column
+    private boolean aiSolved; // true if AI response was satisfactory
+
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
@@ -167,6 +173,22 @@ public class Ticket {
 
     public static Builder builder() {
         return new Builder();
+    }
+
+    public String getAdminResponse() {
+        return adminResponse;
+    }
+
+    public void setAdminResponse(String adminResponse) {
+        this.adminResponse = adminResponse;
+    }
+
+    public boolean isAiSolved() {
+        return aiSolved;
+    }
+
+    public void setAiSolved(boolean aiSolved) {
+        this.aiSolved = aiSolved;
     }
 
     public static class Builder {

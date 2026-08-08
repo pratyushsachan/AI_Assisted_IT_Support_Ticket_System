@@ -22,13 +22,18 @@ public class UserService {
             throw new IllegalArgumentException("Email already registered: " + request.getEmail());
         }
 
+        Role resolvedRole = Role.USER;
+        if ("ADMIN".equalsIgnoreCase(request.getRole())) {
+            resolvedRole = Role.ADMIN;
+        }
+
         User user = User.builder()
                 .email(request.getEmail())
                 // TODO Phase 3: .password(passwordEncoder.encode(request.getPassword()))
                 .password(request.getPassword()) // PLAIN TEXT — placeholder only, replace before real use
                 .fullName(request.getFullName())
-                .role(Role.USER)
-                .build();
+                .role(resolvedRole)
+                .build();;
 
         return userRepository.save(user);
     }
