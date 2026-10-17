@@ -1,4 +1,4 @@
-# AI-Assisted IT Support Ticket System (Backend)
+# AI-Assisted IT Support Ticket System 
 
 A Spring Boot REST API for an IT helpdesk where employees raise tickets, an AI model (Groq, Llama) classifies each ticket and drafts a first response, and an admin decides how to resolve it.
 
